@@ -1,10 +1,21 @@
 import Adafruit_DHT
 import time
+import pymongo
 
-SENSOR_LOCATION_NAME = "Office"
+cl = pymongo.MongoClient()
+coll = cl["climate"]["sensor"]
 
-while True:
-    humidity, temp_c = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 4)
+if __name__ == '__main__':
+    try:
+        humidity, temp_c = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 4)
+        t = time.time()
+        entry = {
+            "time": t,
+            "humidity": humidity,
+            "temperature": temp_c,
+            "location": "office"
+        }
+        coll.insert_one(entry)
+    except Exception as e:
+        print(e)
 
-    print("{} Temperature(C) {}  Humidity: {}".format(SENSOR_LOCATION_NAME, temp_c,  humidity))
-    time.sleep(10)
