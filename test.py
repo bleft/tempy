@@ -15,7 +15,7 @@ if __name__ == '__main__':
             "temperature": temp_c,
             "location": "office"
         }
-        coll.insert_one(entry)
+        coll.insert(entry)
     except Exception as e:
         print(e)
 
