@@ -20,5 +20,5 @@ if __name__ == '__main__':
         print(e)
 
 def printValues():
-    humidity, temp_c = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 4)
-    return "Temp: {} \n Himidity {}".format(temp_c, humidity)
+    result = list(coll.find())
+    return result
