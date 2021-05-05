@@ -4,6 +4,7 @@ import test
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def home():
     return test.currentValues()
@@ -13,5 +14,6 @@ def home():
 def hello():
     return test.printValues()
 
-if __name__ == "__main__":
-    app.run()
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
