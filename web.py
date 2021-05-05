@@ -13,3 +13,5 @@ def home():
 def hello():
     return test.printValues()
 
+if __name__ == "__main__":
+    app.run()
