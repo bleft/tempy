@@ -8,6 +8,7 @@ app = Flask(__name__)
 def home():
     return test.currentValues()
 
+
 @app.route('/all')
 def hello():
     return test.printValues()

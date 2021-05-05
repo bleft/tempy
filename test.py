@@ -19,9 +19,11 @@ if __name__ == '__main__':
     except Exception as e:
         print(e)
 
+
 def printValues():
     result = list(coll.find())
     return result
+
 
 def currentValues():
     try:
