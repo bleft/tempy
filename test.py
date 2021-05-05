@@ -24,12 +24,15 @@ def printValues():
     return result
 
 def currentValues():
-    humidity, temp_c = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 4)
-    t = time.time()
-    entry = {
-        "time": t,
-        "humidity": humidity,
-        "temperature": temp_c,
-        "location": "office"
-    }
-    return entry
+    try:
+        humidity, temp_c = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 4)
+        t = time.time()
+        entry = {
+            "time": t,
+            "humidity": humidity,
+            "temperature": temp_c,
+            "location": "office"
+        }
+        return entry
+    except Exception as e:
+        return str(e)
